@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <string>
-#include "CommonString.h"; 
 #include <algorithm>
 using namespace std;
 
@@ -14,7 +13,7 @@ int main()
 {		
 	setlocale(LC_ALL, "rus");	
 
-	string first, second, common;
+	string first, second;
 
 	cout << "Введите первую строку: ";
 	cin >> first;
@@ -23,16 +22,16 @@ int main()
 	cin >> second;
 	
 	ReplaceAll(first, second, '('+second+')');
-
+	
 	return 0;
 }
 
 inline void ReplaceAll(string & str, const string & from, const string & to)
 {   // Handles case where 'to' is a substring of 'from'
 	size_t start_pos = 0;
-	while ((start_pos = str.find(from, start_pos)) != std::string::npos) {
-		str.replace(start_pos, from.length(), to);
-		start_pos += to.length(); 
+	while ((start_pos = str.find(from, start_pos)) != std::string::npos) {//пока стартовая поз.= позиции с которой заменяется не равна концу строки
+		str.replace(start_pos, from.length(), to);//заменить с позиции совпадения, на длину искомой строки, на измененную строку (в скобках)
+		start_pos += to.length(); //стартовую позицию увеличить на длину искомой строки в скобках, искать дальше от нее
 	}
 	cout << str << endl;
 }
