@@ -4,15 +4,14 @@
 
 #include <iostream>
 #include <string>
-#include "CommonString.h";
- 
+#include "CommonString.h"; 
+#include <algorithm>
 using namespace std;
 
 int main()
-{
+{		
 	setlocale(LC_ALL, "rus");
 	CommonString sharedString; //экземпл€р класса
-
 
 	string first, second;
 
@@ -21,9 +20,9 @@ int main()
 
 	cout << "¬ведите вторую строку: ";
 	cin >> second;
-
+	
 	sharedString.GetCommonString(first, second);
-	sharedString.printString();
+	//sharedString.printString();
 
 	return 0;
 
