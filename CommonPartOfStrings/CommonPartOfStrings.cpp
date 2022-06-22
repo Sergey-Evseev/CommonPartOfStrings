@@ -12,8 +12,7 @@ static inline void ReplaceAll(string &str, const string& from, const string& to)
 
 int main()
 {		
-	setlocale(LC_ALL, "rus");
-	CommonString sharedString; //экземпл€р класса
+	setlocale(LC_ALL, "rus");	
 
 	string first, second, common;
 
@@ -23,16 +22,17 @@ int main()
 	cout << "¬ведите вторую строку: ";
 	cin >> second;
 	
-		
-	common == sharedString.ReplaceAll(common, first, second);
-	cout << common;
-
-	//sharedString.printString();
+	ReplaceAll(first, second, '('+second+')');
 
 	return 0;
-
 }
 
-inline void ReplaceAll()
-{
+inline void ReplaceAll(string & str, const string & from, const string & to)
+{   // Handles case where 'to' is a substring of 'from'
+	size_t start_pos = 0;
+	while ((start_pos = str.find(from, start_pos)) != std::string::npos) {
+		str.replace(start_pos, from.length(), to);
+		start_pos += to.length(); 
+	}
+	cout << str << endl;
 }
