@@ -8,12 +8,14 @@
 #include <algorithm>
 using namespace std;
 
+static inline void ReplaceAll(string &str, const string& from, const string& to);
+
 int main()
 {		
 	setlocale(LC_ALL, "rus");
 	CommonString sharedString; //экземпл€р класса
 
-	string first, second;
+	string first, second, common;
 
 	cout << "¬ведите первую строку: ";
 	cin >> first;
@@ -21,9 +23,16 @@ int main()
 	cout << "¬ведите вторую строку: ";
 	cin >> second;
 	
-	sharedString.GetCommonString(first, second);
+		
+	common == sharedString.ReplaceAll(common, first, second);
+	cout << common;
+
 	//sharedString.printString();
 
 	return 0;
 
+}
+
+inline void ReplaceAll()
+{
 }
